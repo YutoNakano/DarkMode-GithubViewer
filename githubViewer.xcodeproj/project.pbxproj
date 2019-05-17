@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011CACEF228EEFE30077F0E3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CACEE228EEFE30077F0E3 /* Request.swift */; };
 		0196F6532286EFAC0088CA22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196F64B2286EFAC0088CA22 /* ViewController.swift */; };
 		0196F6542286EFAC0088CA22 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196F64C2286EFAC0088CA22 /* View.swift */; };
 		0196F6562286EFAC0088CA22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196F64E2286EFAC0088CA22 /* Extensions.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011CACEE228EEFE30077F0E3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0196F64B2286EFAC0088CA22 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0196F64C2286EFAC0088CA22 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		0196F64E2286EFAC0088CA22 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		011CACED228EEFD30077F0E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				011CACEE228EEFE30077F0E3 /* Request.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0196F6492286EFAC0088CA22 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		01A81A952286D869009DDDEA /* githubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				011CACED228EEFD30077F0E3 /* Model */,
 				0196F65C2286F0420088CA22 /* View */,
 				01A81A962286D869009DDDEA /* AppDelegate.swift */,
 				0196F6492286EFAC0088CA22 /* Base */,
@@ -247,6 +258,7 @@
 				0196F6532286EFAC0088CA22 /* ViewController.swift in Sources */,
 				01A81A972286D869009DDDEA /* AppDelegate.swift in Sources */,
 				0196F6582286EFAC0088CA22 /* EnhancedCircle.swift in Sources */,
+				011CACEF228EEFE30077F0E3 /* Request.swift in Sources */,
 				0196F65E2286F3CB0088CA22 /* TopTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

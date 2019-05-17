@@ -26,6 +26,11 @@ final class TopTableViewCell: UITableViewCell {
         contentView.addSubview(v)
         return v
     }()
+    lazy var nextImageView: UIImageView = {
+        let v = UIImageView(image: UIImage(named: "next"))
+        contentView.addSubview(v)
+        return v
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,6 +56,10 @@ final class TopTableViewCell: UITableViewCell {
             make.width.equalTo(120)
             make.left.equalTo(userImageView.snp.right).offset(30)
             make.centerY.equalTo(userImageView.snp.centerY)
+        }
+        nextImageView.snp.makeConstraints { make in
+            make.centerY.equalTo(userImageView.snp.centerY)
+            make.right.equalToSuperview().offset(-20)
         }
     }
 }
