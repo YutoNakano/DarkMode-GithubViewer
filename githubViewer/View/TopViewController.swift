@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import APIKit
 
 final class TopViewController: ViewController {
     
@@ -36,6 +37,15 @@ final class TopViewController: ViewController {
     override func setupView() {
         tableView.tableHeaderView = serchBar
         title = "検索"
+        
+        Session.send(SearchRepo.SearchRepositories(query: "APIKit")) { result in
+            switch result {
+            case .success(let res):
+                print(res)
+            case .failure(let error):
+                print(error)
+        }
+        }
     }
     
     override func makeConstraints() {

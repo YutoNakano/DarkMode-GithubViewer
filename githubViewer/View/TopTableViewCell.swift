@@ -13,7 +13,7 @@ final class TopTableViewCell: UITableViewCell {
     
     lazy var userImageView: UIImageView = {
         let v = UIImageView()
-        v.image = UIImage(named: "sample")
+        v.image = UIImage(named: "apple")
         v.layer.cornerRadius = 3
         v.clipsToBounds = true
         contentView.addSubview(v)
