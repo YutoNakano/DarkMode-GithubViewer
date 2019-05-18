@@ -19,13 +19,6 @@ extension BaseRequest {
 }
 
 extension BaseRequest where Response: Decodable {
-//    var method: HTTPMethod {
-//        return .get
-//    }
-//    
-//    var path: String {
-//        return ""
-//    }
     
     var dataParser: DataParser {
         return DecodableDataparser()

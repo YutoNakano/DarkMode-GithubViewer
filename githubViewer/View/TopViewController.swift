@@ -38,7 +38,7 @@ final class TopViewController: ViewController {
         tableView.tableHeaderView = serchBar
         title = "検索"
         
-        Session.send(SearchRepo.SearchRepositories(query: "APIKit")) { result in
+        Session.send(SearchRepo.SearchRepositories(query: "Python")) { result in
             switch result {
             case .success(let res):
                 print(res)
