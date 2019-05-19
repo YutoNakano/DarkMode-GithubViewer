@@ -34,7 +34,7 @@ final class TopViewController: ViewController {
         return v
     }()
     
-    private var presenter: SearchRepositoriesPresenterInput?
+    private var presenter: SearchRepositoriesPresenterInput!
     
     func inject(presenter: SearchRepositoriesPresenterInput) {
         self.presenter = presenter
@@ -43,15 +43,6 @@ final class TopViewController: ViewController {
     override func setupView() {
         tableView.tableHeaderView = serchBar
         title = "検索"
-        
-        Session.send(SearchRepo.SearchRepositories(query: "Python")) { result in
-            switch result {
-            case .success(let res):
-                print(res)
-            case .failure(let error):
-                print(error)
-        }
-        }
     }
     
     override func makeConstraints() {
@@ -64,11 +55,16 @@ final class TopViewController: ViewController {
 
 extension TopViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return presenter.numberOfRepos
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TopTableViewCell else { fatalError() }
+        // presenter.repoはrepositories[row]を返す
+        if let repo = presenter.repo(forRow: indexPath.row) {
+        // cellにviewmodelを渡す
+            cell.configure(repo: repo)
+        }
         return cell
     }
     
@@ -100,5 +96,11 @@ extension TopViewController: UISearchBarDelegate {
         self.view.endEditing(true)
         serchBar.text = ""
         self.tableView.reloadData()
+    }
+}
+
+extension TopViewController: SearchRepositoriesPresenterOutput {
+    func updateRepo(_ repositories: [Repository]) {
+        tableView.reloadData()
     }
 }

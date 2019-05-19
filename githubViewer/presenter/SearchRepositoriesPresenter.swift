@@ -11,17 +11,36 @@ import APIKit
 
 
 protocol SearchRepositoriesPresenterInput {
+    var numberOfRepos: Int { get }
+    func repo(forRow row: Int) -> Repository?
     func didTapSearchButton(text: String?)
+}
+
+protocol SearchRepositoriesPresenterOutput: AnyObject {
+    func updateRepo(_ repositories: [Repository])
 }
 
 final class SearchRepositoriesPresenter {
     
     private(set) var repositories: [Repository] = []
+    private weak var view: SearchRepositoriesPresenterOutput!
+    
     
 }
 
 
 extension SearchRepositoriesPresenter: SearchRepositoriesPresenterInput {
+    
+    func repo(forRow row: Int) -> Repository? {
+        // repositories.countがtableviewのcellの数を上回ったらnilを返す
+        guard row < repositories.count else { return nil }
+        return repositories[row]
+    }
+    
+    var numberOfRepos: Int {
+        return repositories.count
+    }
+    
     func didTapSearchButton(text: String?) {
         guard let query = text else { return }
         Session.send(SearchRepo.SearchRepositories(query: query)) { result in
@@ -29,6 +48,9 @@ extension SearchRepositoriesPresenter: SearchRepositoriesPresenterInput {
             case .success(let response):
                     print(response.items)
                     self.repositories = response.items
+                    DispatchQueue.main.async {
+                        self.view.updateRepo(response.items)
+                }
 
             case .failure(let error):
                     print(error)
