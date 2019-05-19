@@ -84,6 +84,7 @@ extension TopViewController: UITableViewDataSource {
 extension TopViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        presenter.didSelectRow(at: indexPath)
     }
 
 }
@@ -112,6 +113,11 @@ extension TopViewController: UISearchBarDelegate {
 }
 
 extension TopViewController: SearchRepositoriesPresenterOutput {
+    func transitionToWebView(url: URL) {
+        let webViewController = WebViewController(url: url)
+        navigationController?.pushViewController(webViewController, animated: true)
+    }
+    
     func updateRepo(_ repositories: [Repository]) {
         tableView.reloadData()
     }

@@ -13,12 +13,14 @@ import APIKit
 protocol SearchRepositoriesPresenterInput {
     var numberOfRepos: Int { get }
     func repo(forRow row: Int) -> Repository?
+    func didSelectRow(at indexpath: IndexPath)
     func didTapSearchButton(text: String?)
 }
 
 protocol SearchRepositoriesPresenterOutput: AnyObject {
     func updateRepo(_ repositories: [Repository])
     func stopIndicator()
+    func transitionToWebView(url: URL)
 }
 
 final class SearchRepositoriesPresenter {
@@ -35,14 +37,19 @@ final class SearchRepositoriesPresenter {
 
 extension SearchRepositoriesPresenter: SearchRepositoriesPresenterInput {
     
+    var numberOfRepos: Int {
+        return repositories.count
+    }
+    
     func repo(forRow row: Int) -> Repository? {
         // repositories.countがtableviewのcellの数を上回ったらnilを返す
         guard row < repositories.count else { return nil }
         return repositories[row]
     }
     
-    var numberOfRepos: Int {
-        return repositories.count
+    func didSelectRow(at indexpath: IndexPath) {
+        guard let repo = repo(forRow: indexpath.row) else { return }
+        view.transitionToWebView(url: repo.htmlURL)
     }
     
     func didTapSearchButton(text: String?) {
