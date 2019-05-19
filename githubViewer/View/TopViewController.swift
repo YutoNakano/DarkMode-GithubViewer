@@ -34,6 +34,16 @@ final class TopViewController: ViewController {
         return v
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let v = UIActivityIndicatorView()
+        v.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        v.center = self.view.center
+        v.hidesWhenStopped = true
+        v.style = UIActivityIndicatorView.Style.gray
+        view.addSubview(v)
+        return v
+    }()
+    
     private var presenter: SearchRepositoriesPresenterInput!
     
     func inject(presenter: SearchRepositoriesPresenterInput) {
@@ -83,6 +93,8 @@ extension TopViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
         presenter?.didTapSearchButton(text: searchBar.text)
+        // Indicator回す
+        activityIndicator.startAnimating()
     }
     
     func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
@@ -102,5 +114,9 @@ extension TopViewController: UISearchBarDelegate {
 extension TopViewController: SearchRepositoriesPresenterOutput {
     func updateRepo(_ repositories: [Repository]) {
         tableView.reloadData()
+    }
+    
+    func stopIndicator() {
+        activityIndicator.stopAnimating()
     }
 }

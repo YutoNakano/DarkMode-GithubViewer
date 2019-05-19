@@ -18,6 +18,7 @@ protocol SearchRepositoriesPresenterInput {
 
 protocol SearchRepositoriesPresenterOutput: AnyObject {
     func updateRepo(_ repositories: [Repository])
+    func stopIndicator()
 }
 
 final class SearchRepositoriesPresenter {
@@ -25,6 +26,9 @@ final class SearchRepositoriesPresenter {
     private(set) var repositories: [Repository] = []
     private weak var view: SearchRepositoriesPresenterOutput!
     
+    init(view: SearchRepositoriesPresenterOutput) {
+        self.view = view
+    }
     
 }
 
@@ -43,6 +47,7 @@ extension SearchRepositoriesPresenter: SearchRepositoriesPresenterInput {
     
     func didTapSearchButton(text: String?) {
         guard let query = text else { return }
+        guard !query.isEmpty else { return self.view.stopIndicator() }
         Session.send(SearchRepo.SearchRepositories(query: query)) { result in
             switch result {
             case .success(let response):
@@ -50,6 +55,7 @@ extension SearchRepositoriesPresenter: SearchRepositoriesPresenterInput {
                     self.repositories = response.items
                     DispatchQueue.main.async {
                         self.view.updateRepo(response.items)
+                        self.view.stopIndicator()
                 }
 
             case .failure(let error):
