@@ -29,10 +29,16 @@ final class TopViewController: ViewController {
         v.searchBarStyle = UISearchBar.Style.default
         v.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:42)
         v.layer.position = CGPoint(x: self.view.bounds.width/2, y: 89)
-        v.placeholder = "ユーザー名を入力"
+        v.placeholder = "キーワードを入力"
         view.addSubview(v)
         return v
     }()
+    
+    private var presenter: SearchRepositoriesPresenterInput?
+    
+    func inject(presenter: SearchRepositoriesPresenterInput) {
+        self.presenter = presenter
+    }
     
     override func setupView() {
         tableView.tableHeaderView = serchBar
@@ -77,6 +83,12 @@ extension TopViewController: UITableViewDelegate {
 }
 
 extension TopViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        presenter?.didTapSearchButton(text: searchBar.text)
+    }
+    
     func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
         searchBar.showsCancelButton = true

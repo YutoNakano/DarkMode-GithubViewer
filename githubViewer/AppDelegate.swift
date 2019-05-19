@@ -12,9 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let presenter = SearchRepositoriesPresenter()
     let topViewController = TopViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        topViewController.inject(presenter: presenter)
         
         let navigationController = UINavigationController(rootViewController: topViewController)
         window = UIWindow(frame: UIScreen.main.bounds)
