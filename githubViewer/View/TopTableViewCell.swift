@@ -67,5 +67,7 @@ final class TopTableViewCell: UITableViewCell {
 extension TopTableViewCell {
     func configure(repo: Repository) {
         nameLabel.text = repo.fullName
+        let url = repo.owner.avatarURL
+        userImageView.setImage(with: url)
     }
 }

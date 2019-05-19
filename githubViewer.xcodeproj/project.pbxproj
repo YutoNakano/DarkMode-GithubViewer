@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0123BE1A22900FC300736ADA /* DecodableDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123BE1922900FC300736ADA /* DecodableDataParser.swift */; };
 		015E4A562290DC61001D4D7A /* SearchRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E4A552290DC61001D4D7A /* SearchRepo.swift */; };
+		01736D312291673A008D3D02 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01736D302291673A008D3D02 /* UIImageView+Kingfisher.swift */; };
+		01736D3322917026008D3D02 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01736D3222917026008D3D02 /* WebViewController.swift */; };
 		0196F6532286EFAC0088CA22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196F64B2286EFAC0088CA22 /* ViewController.swift */; };
 		0196F6542286EFAC0088CA22 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196F64C2286EFAC0088CA22 /* View.swift */; };
 		0196F6562286EFAC0088CA22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196F64E2286EFAC0088CA22 /* Extensions.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		0123BE1922900FC300736ADA /* DecodableDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDataParser.swift; sourceTree = "<group>"; };
 		015E4A552290DC61001D4D7A /* SearchRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepo.swift; sourceTree = "<group>"; };
+		01736D302291673A008D3D02 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		01736D3222917026008D3D02 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0196F64B2286EFAC0088CA22 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0196F64C2286EFAC0088CA22 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		0196F64E2286EFAC0088CA22 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 				0196F64E2286EFAC0088CA22 /* Extensions.swift */,
 				0196F64F2286EFAC0088CA22 /* AppColor.swift */,
 				0196F6502286EFAC0088CA22 /* EnhancedCircle.swift */,
+				01736D302291673A008D3D02 /* UIImageView+Kingfisher.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			children = (
 				0196F65A2286F01F0088CA22 /* TopViewController.swift */,
 				0196F65D2286F3CB0088CA22 /* TopTableViewCell.swift */,
+				01736D3222917026008D3D02 /* WebViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-githubViewer/Pods-githubViewer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -257,6 +264,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,12 +285,14 @@
 				0196F6572286EFAC0088CA22 /* AppColor.swift in Sources */,
 				0196F65B2286F01F0088CA22 /* TopViewController.swift in Sources */,
 				0196F6532286EFAC0088CA22 /* ViewController.swift in Sources */,
+				01736D312291673A008D3D02 /* UIImageView+Kingfisher.swift in Sources */,
 				01FBA0E4228FD88000C8C84C /* Repository.swift in Sources */,
 				015E4A562290DC61001D4D7A /* SearchRepo.swift in Sources */,
 				01A81A972286D869009DDDEA /* AppDelegate.swift in Sources */,
 				0196F6582286EFAC0088CA22 /* EnhancedCircle.swift in Sources */,
 				01EF04192290313A0049429A /* SearchRepositoriesPresenter.swift in Sources */,
 				0196F65E2286F3CB0088CA22 /* TopTableViewCell.swift in Sources */,
+				01736D3322917026008D3D02 /* WebViewController.swift in Sources */,
 				01FBA0E0228FD0B000C8C84C /* BaseRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@ target 'githubViewer' do
   use_frameworks!
 pod 'SnapKit', '~> 5.0.0'
 pod 'APIKit', '~> 5.0'
+pod 'Kingfisher', '~> 5.0'
   # Pods for githubViewer
 
 end
