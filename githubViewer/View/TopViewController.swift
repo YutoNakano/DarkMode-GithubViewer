@@ -44,6 +44,13 @@ final class TopViewController: ViewController {
         return v
     }()
     
+    lazy var authButton: UIButton = {
+        let v = UIButton()
+        v.addTarget(self, action: #selector(authButtonTapped), for: .touchUpInside)
+        view.addSubview(v)
+        return v
+    }()
+    
     private var presenter: SearchRepositoriesPresenterInput!
     
     func inject(presenter: SearchRepositoriesPresenterInput) {
@@ -124,5 +131,13 @@ extension TopViewController: SearchRepositoriesPresenterOutput {
     
     func stopIndicator() {
         activityIndicator.stopAnimating()
+    }
+}
+
+extension TopViewController {
+    @objc func authButtonTapped() {
+        let gitOuthURL = URL(string: "https://github.com/login/oauth/authorize?client_id=( pass )&scope=public_repo")
+        let gitOuthRequest = URLRequest(url: gitOuthURL!)
+        WebViewController.load(gitOuthRequest)
     }
 }
