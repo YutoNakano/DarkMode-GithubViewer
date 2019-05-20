@@ -1,5 +1,5 @@
-# DarkMode-GithubViewer (WIP)
+# GithubViewer (WIP)
 
-## Githubをダークモードで閲覧できるアプリ
+## Githubを閲覧するためのブラウザアプリ
 
-iOS13から、ダークモードが追加されるかもしれないので目に優しいGithubViewerを作りたい。
+
