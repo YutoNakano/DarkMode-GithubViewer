@@ -150,4 +150,15 @@ extension TopViewController {
     @objc func clipButtonTapped() {
         print(#function)
     }
+    
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        // 設定しているコールバックURLのスキーム、ホスト名で分岐処理
+        if navigationAction.request.url?.scheme == "yyokii", navigationAction.request.url?.host == "SmartGithubViewer"{
+            dismiss(animated: true, completion: nil)
+            
+
+        }
+    }
 }
