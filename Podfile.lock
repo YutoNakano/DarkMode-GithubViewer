@@ -1,24 +1,32 @@
 PODS:
+  - Alamofire (4.8.2)
   - APIKit (5.0.0)
   - Kingfisher (5.4.0)
+  - OAuthSwift (1.3.0)
   - SnapKit (5.0.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - APIKit (~> 5.0)
   - Kingfisher (~> 5.0)
+  - OAuthSwift
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - APIKit
     - Kingfisher
+    - OAuthSwift
     - SnapKit
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   APIKit: b27d79b022733b2f50e7a092e67c4cb9ea30f968
   Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
+  OAuthSwift: 7ef2f74cb570e1e30e2aeddc58fccc0f3891d057
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: 8bfd9a18c311ab0da1c539a21572518439be1a25
+PODFILE CHECKSUM: d0dc650272b74979d1a19516b7c25ce84492820a
 
 COCOAPODS: 1.5.3

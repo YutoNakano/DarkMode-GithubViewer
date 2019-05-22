@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 import APIKit
 import WebKit
+import Alamofire
+import OAuthSwift
 
 final class TopViewController: ViewController {
     
@@ -56,6 +58,11 @@ final class TopViewController: ViewController {
     }()
     
     private var presenter: SearchRepositoriesPresenterInput!
+    weak var delegate: AuthViewControllerDelegate?
+    
+    var oauthswift: OAuthSwift?
+    var access_token = ""
+    var main_user = ""
     
     func inject(presenter: SearchRepositoriesPresenterInput) {
         self.presenter = presenter
@@ -143,22 +150,36 @@ extension TopViewController: SearchRepositoriesPresenterOutput {
 
 extension TopViewController {
     @objc func authButtonTapped() {
-        let gitOuthURL = DataConfig.githubClientID
-        let webView = WebViewController(url: gitOuthURL)
-        present(webView, animated: true, completion: nil)
+            let oauthswift = OAuth2Swift(
+                consumerKey:    Config.CliantID,
+                consumerSecret: Config.CliantSecret,
+                authorizeUrl:   "https://github.com/login/oauth/authorize",
+                accessTokenUrl: "https://github.com/login/oauth/access_token",
+                responseType:   "code"
+            )
+            self.oauthswift = oauthswift
+            oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
+            let state = generateState(withLength: 20)
+            let _ = oauthswift.authorize(
+                withCallbackURL: URL(string: "smartGithubViewer://")!, scope: "user,repo", state: state,
+                success: { credential, response, parameters in
+                    print(credential.oauthToken)
+                    self.access_token = credential.oauthToken
+                    
+                    Alamofire.request("https://api.github.com/user?access_token=" + self.access_token).responseJSON { response in
+                        if let dict = response.result.value as? [String: Any] {
+                            self.main_user = dict["login"] as! String
+                            print(dict)
+                        }
+                    }
+                    
+            },
+                failure: { error in
+                    print(error.description)
+            }
+            )
     }
     @objc func clipButtonTapped() {
         print(#function)
-    }
-    
-    
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
-        // 設定しているコールバックURLのスキーム、ホスト名で分岐処理
-        if navigationAction.request.url?.scheme == "yyokii", navigationAction.request.url?.host == "SmartGithubViewer"{
-            dismiss(animated: true, completion: nil)
-            
-
-        }
     }
 }

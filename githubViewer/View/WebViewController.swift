@@ -24,7 +24,8 @@ class WebViewController: ViewController {
     }
     
     lazy var webView: WKWebView = {
-        let v = WKWebView()
+        let webConfig = WKWebViewConfiguration()
+        let v = WKWebView(frame: .zero, configuration: webConfig)
         let urlRequest = URLRequest(url: url)
         v.load(urlRequest)
         view.addSubview(v)
