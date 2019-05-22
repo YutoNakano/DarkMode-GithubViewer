@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import APIKit
+import WebKit
 
 final class TopViewController: ViewController {
     
@@ -16,7 +17,7 @@ final class TopViewController: ViewController {
         let v = UITableView()
         v.register(TopTableViewCell.self, forCellReuseIdentifier: "Cell")
         v.rowHeight = 90
-        v.backgroundColor = UIColor.green
+        v.backgroundColor = UIColor.white
         v.delegate = self
         v.dataSource = self
         view.addSubview(v)
@@ -44,10 +45,13 @@ final class TopViewController: ViewController {
         return v
     }()
     
-    lazy var authButton: UIButton = {
-        let v = UIButton()
-        v.addTarget(self, action: #selector(authButtonTapped), for: .touchUpInside)
-        view.addSubview(v)
+    lazy var authButton: UIBarButtonItem = {
+        let v = UIBarButtonItem(image: UIImage(named: "auth")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(authButtonTapped))
+        return v
+    }()
+    
+    lazy var clipButton: UIBarButtonItem = {
+        let v = UIBarButtonItem(image: UIImage(named: "clip")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(clipButtonTapped))
         return v
     }()
     
@@ -59,13 +63,16 @@ final class TopViewController: ViewController {
     
     override func setupView() {
         tableView.tableHeaderView = serchBar
-        title = "検索"
+        navigationItem.leftBarButtonItem = authButton
+        navigationItem.rightBarButtonItem = clipButton
+        title = "リポジトリ検索"
     }
     
     override func makeConstraints() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
     }
     
 }
@@ -136,8 +143,11 @@ extension TopViewController: SearchRepositoriesPresenterOutput {
 
 extension TopViewController {
     @objc func authButtonTapped() {
-        let gitOuthURL = URL(string: "https://github.com/login/oauth/authorize?client_id=( pass )&scope=public_repo")
-        let gitOuthRequest = URLRequest(url: gitOuthURL!)
-        WebViewController.load(gitOuthRequest)
+        let gitOuthURL = DataConfig.githubClientID
+        let webView = WebViewController(url: gitOuthURL)
+        present(webView, animated: true, completion: nil)
+    }
+    @objc func clipButtonTapped() {
+        print(#function)
     }
 }

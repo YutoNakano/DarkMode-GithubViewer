@@ -21,6 +21,7 @@
 		01A81A972286D869009DDDEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A81A962286D869009DDDEA /* AppDelegate.swift */; };
 		01A81A9E2286D869009DDDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A81A9D2286D869009DDDEA /* Assets.xcassets */; };
 		01A81AA12286D869009DDDEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01A81A9F2286D869009DDDEA /* LaunchScreen.storyboard */; };
+		01EA33332294F95000617AC1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EA33322294F95000617AC1 /* Config.swift */; };
 		01EF04192290313A0049429A /* SearchRepositoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF04182290313A0049429A /* SearchRepositoriesPresenter.swift */; };
 		01FBA0E0228FD0B000C8C84C /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FBA0DF228FD0B000C8C84C /* BaseRequest.swift */; };
 		01FBA0E4228FD88000C8C84C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FBA0E3228FD88000C8C84C /* Repository.swift */; };
@@ -44,6 +45,7 @@
 		01A81A9D2286D869009DDDEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01A81AA02286D869009DDDEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01A81AA22286D869009DDDEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01EA33322294F95000617AC1 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		01EF04182290313A0049429A /* SearchRepositoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesPresenter.swift; sourceTree = "<group>"; };
 		01FBA0DF228FD0B000C8C84C /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		01FBA0E3228FD88000C8C84C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		01A81A952286D869009DDDEA /* githubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				01EA33312294F94300617AC1 /* Config */,
 				01EF0417229031190049429A /* presenter */,
 				011CACED228EEFD30077F0E3 /* Model */,
 				0196F65C2286F0420088CA22 /* View */,
@@ -129,6 +132,14 @@
 				01A81AA22286D869009DDDEA /* Info.plist */,
 			);
 			path = githubViewer;
+			sourceTree = "<group>";
+		};
+		01EA33312294F94300617AC1 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				01EA33322294F95000617AC1 /* Config.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		01EF0417229031190049429A /* presenter */ = {
@@ -292,6 +303,7 @@
 				0196F6582286EFAC0088CA22 /* EnhancedCircle.swift in Sources */,
 				01EF04192290313A0049429A /* SearchRepositoriesPresenter.swift in Sources */,
 				0196F65E2286F3CB0088CA22 /* TopTableViewCell.swift in Sources */,
+				01EA33332294F95000617AC1 /* Config.swift in Sources */,
 				01736D3322917026008D3D02 /* WebViewController.swift in Sources */,
 				01FBA0E0228FD0B000C8C84C /* BaseRequest.swift in Sources */,
 			);
