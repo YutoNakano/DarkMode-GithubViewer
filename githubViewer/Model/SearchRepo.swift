@@ -23,11 +23,11 @@ public final class SearchRepo {
             return ["q": query, "page": 1]
         }
         
-        var headerFields: [String : String] {
-            return [
-                "Authorization": "token" + ""
-            ]
-        }
+//        var headerFields: [String : String] {
+//            return [
+//                "Authorization": "token" + ""
+//            ]
+//        }
         
         let query: String
     }

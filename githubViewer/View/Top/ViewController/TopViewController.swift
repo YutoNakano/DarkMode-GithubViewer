@@ -49,6 +49,7 @@ final class TopViewController: ViewController {
     
     lazy var authButton: UIBarButtonItem = {
         let v = UIBarButtonItem(image: UIImage(named: "auth")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(authButtonTapped))
+        v.tintColor = UIColor.appColor(.mainPink)
         return v
     }()
     

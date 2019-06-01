@@ -83,6 +83,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		01456A8522A2B58900AC2BAD /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				01456A8822A2B5CF00AC2BAD /* ViewController */,
+				01456A8722A2B5B800AC2BAD /* SectionController */,
+				01456A8622A2B5AC00AC2BAD /* Cell */,
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		01456A8622A2B5AC00AC2BAD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0196F65D2286F3CB0088CA22 /* TopTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		01456A8722A2B5B800AC2BAD /* SectionController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SectionController;
+			sourceTree = "<group>";
+		};
+		01456A8822A2B5CF00AC2BAD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0196F65A2286F01F0088CA22 /* TopViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		0196F6492286EFAC0088CA22 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +133,7 @@
 		0196F65C2286F0420088CA22 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0196F65A2286F01F0088CA22 /* TopViewController.swift */,
-				0196F65D2286F3CB0088CA22 /* TopTableViewCell.swift */,
+				01456A8522A2B58900AC2BAD /* Top */,
 				01736D3222917026008D3D02 /* WebViewController.swift */,
 				012DEC1B229543ED00FDFC7F /* AuthViewController.swift */,
 			);

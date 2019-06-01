@@ -67,6 +67,7 @@ extension SearchRepositoriesPresenter: SearchRepositoriesPresenterInput {
 
             case .failure(let error):
                     print(error)
+                self.view.stopIndicator()
             }
         }
     }
