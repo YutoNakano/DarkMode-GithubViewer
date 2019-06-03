@@ -152,8 +152,8 @@ extension TopViewController: SearchRepositoriesPresenterOutput {
 extension TopViewController {
     @objc func authButtonTapped() {
             let oauthswift = OAuth2Swift(
-                consumerKey:    Config.CliantID,
-                consumerSecret: Config.CliantSecret,
+                consumerKey:    "aaa",
+                consumerSecret: "bbb",
                 authorizeUrl:   "https://github.com/login/oauth/authorize",
                 accessTokenUrl: "https://github.com/login/oauth/access_token",
                 responseType:   "code"
