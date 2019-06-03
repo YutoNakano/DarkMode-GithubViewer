@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010FC14C22A4AAF800EDC563 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FC14B22A4AAF800EDC563 /* RecommendViewController.swift */; };
 		0123BE1A22900FC300736ADA /* DecodableDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123BE1922900FC300736ADA /* DecodableDataParser.swift */; };
-		012DEC1A22952D8100FDFC7F /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DEC1922952D8100FDFC7F /* Auth.swift */; };
 		012DEC1C229543ED00FDFC7F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DEC1B229543ED00FDFC7F /* AuthViewController.swift */; };
 		015E4A562290DC61001D4D7A /* SearchRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E4A552290DC61001D4D7A /* SearchRepo.swift */; };
 		01736D312291673A008D3D02 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01736D302291673A008D3D02 /* UIImageView+Kingfisher.swift */; };
@@ -31,8 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010FC14B22A4AAF800EDC563 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		0123BE1922900FC300736ADA /* DecodableDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDataParser.swift; sourceTree = "<group>"; };
-		012DEC1922952D8100FDFC7F /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		012DEC1B229543ED00FDFC7F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		012DEC1D22954DE200FDFC7F /* githubViewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "githubViewer-Bridging-Header.h"; sourceTree = "<group>"; };
 		015E4A552290DC61001D4D7A /* SearchRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepo.swift; sourceTree = "<group>"; };
@@ -71,6 +71,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010FC14722A4AA9500EDC563 /* Recomend */ = {
+			isa = PBXGroup;
+			children = (
+				010FC14A22A4AAD400EDC563 /* Cell */,
+				010FC14922A4AAC500EDC563 /* SectionController */,
+				010FC14822A4AAA700EDC563 /* ViewController */,
+			);
+			path = Recomend;
+			sourceTree = "<group>";
+		};
+		010FC14822A4AAA700EDC563 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				010FC14B22A4AAF800EDC563 /* RecommendViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		010FC14922A4AAC500EDC563 /* SectionController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SectionController;
+			sourceTree = "<group>";
+		};
+		010FC14A22A4AAD400EDC563 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		011CACED228EEFD30077F0E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,7 +110,6 @@
 				01FBA0E3228FD88000C8C84C /* Repository.swift */,
 				0123BE1922900FC300736ADA /* DecodableDataParser.swift */,
 				015E4A552290DC61001D4D7A /* SearchRepo.swift */,
-				012DEC1922952D8100FDFC7F /* Auth.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				01456A8822A2B5CF00AC2BAD /* ViewController */,
-				01456A8722A2B5B800AC2BAD /* SectionController */,
 				01456A8622A2B5AC00AC2BAD /* Cell */,
 			);
 			path = Top;
@@ -99,13 +129,6 @@
 				0196F65D2286F3CB0088CA22 /* TopTableViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		01456A8722A2B5B800AC2BAD /* SectionController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SectionController;
 			sourceTree = "<group>";
 		};
 		01456A8822A2B5CF00AC2BAD /* ViewController */ = {
@@ -133,6 +156,7 @@
 		0196F65C2286F0420088CA22 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				010FC14722A4AA9500EDC563 /* Recomend */,
 				01456A8522A2B58900AC2BAD /* Top */,
 				01736D3222917026008D3D02 /* WebViewController.swift */,
 				012DEC1B229543ED00FDFC7F /* AuthViewController.swift */,
@@ -341,11 +365,11 @@
 				0196F65B2286F01F0088CA22 /* TopViewController.swift in Sources */,
 				0196F6532286EFAC0088CA22 /* ViewController.swift in Sources */,
 				01736D312291673A008D3D02 /* UIImageView+Kingfisher.swift in Sources */,
-				012DEC1A22952D8100FDFC7F /* Auth.swift in Sources */,
 				01FBA0E4228FD88000C8C84C /* Repository.swift in Sources */,
 				015E4A562290DC61001D4D7A /* SearchRepo.swift in Sources */,
 				01A81A972286D869009DDDEA /* AppDelegate.swift in Sources */,
 				0196F6582286EFAC0088CA22 /* EnhancedCircle.swift in Sources */,
+				010FC14C22A4AAF800EDC563 /* RecommendViewController.swift in Sources */,
 				01EF04192290313A0049429A /* SearchRepositoriesPresenter.swift in Sources */,
 				0196F65E2286F3CB0088CA22 /* TopTableViewCell.swift in Sources */,
 				01EA33332294F95000617AC1 /* Config.swift in Sources */,

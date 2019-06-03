@@ -151,34 +151,7 @@ extension TopViewController: SearchRepositoriesPresenterOutput {
 
 extension TopViewController {
     @objc func authButtonTapped() {
-            let oauthswift = OAuth2Swift(
-                consumerKey:    "aaa",
-                consumerSecret: "bbb",
-                authorizeUrl:   "https://github.com/login/oauth/authorize",
-                accessTokenUrl: "https://github.com/login/oauth/access_token",
-                responseType:   "code"
-            )
-            self.oauthswift = oauthswift
-            oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
-            let state = generateState(withLength: 20)
-            let _ = oauthswift.authorize(
-                withCallbackURL: URL(string: "smartGithubViewer://")!, scope: "user,repo", state: state,
-                success: { credential, response, parameters in
-                    print(credential.oauthToken)
-                    self.access_token = credential.oauthToken
-                    
-                    Alamofire.request("https://api.github.com/user?access_token=" + self.access_token).responseJSON { response in
-                        if let dict = response.result.value as? [String: Any] {
-                            self.main_user = dict["login"] as! String
-                            print(dict)
-                        }
-                    }
-                    
-            },
-                failure: { error in
-                    print(error.description)
-            }
-            )
+
     }
     @objc func clipButtonTapped() {
         print(#function)

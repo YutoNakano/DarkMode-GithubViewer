@@ -15,15 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let topViewController = TopViewController()
+    let recommendViewController = RecommendViewController()
+    let tabViewController = UITabBarController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let navi1 = UINavigationController(rootViewController: topViewController)
+        navi1.tabBarItem.image = UIImage(named: "infomation")
+        navi1.title = "検索"
+        let navi2 = UINavigationController(rootViewController: recommendViewController)
+        navi2.tabBarItem.image = UIImage(named: "others")
+        navi2.title = "おすすめ"
+        
+        let controllers = [navi1,navi2]
         
         let presenter = SearchRepositoriesPresenter(view: topViewController)
         topViewController.inject(presenter: presenter)
         
-        let navigationController = UINavigationController(rootViewController: topViewController)
+        tabViewController.viewControllers = controllers
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabViewController
         window?.makeKeyAndVisible()
         return true
     }
